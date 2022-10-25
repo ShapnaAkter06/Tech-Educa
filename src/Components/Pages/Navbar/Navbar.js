@@ -77,7 +77,7 @@ const Navbar = () => {
                                     to="/profile"
                                     className="self-center px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
                                 >
-                                    {user.displayName}
+                                    <img src={user.photoURL} alt="" title={user.displayName}/>
                                 </Link>
                                 <Link
                                     to="/login"
@@ -174,7 +174,7 @@ const Navbar = () => {
                                     to="/profile"
                                     className="self-center px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
                                 >
-                                    {user.displayName}
+                                    <img src={user.photoURL} alt="" title={user.displayName}/>
                                 </Link>
                                 <Link
                                     to="/login"
