@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { FaListAlt } from 'react-icons/fa';
 import logo from '../../../assets/logo.svg';
 import './Navbar.css'
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
