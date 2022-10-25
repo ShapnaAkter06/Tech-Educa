@@ -51,14 +51,11 @@ const AuthProvider = ({ children }) => {
     }
 
     useEffect(() => {
-        // eta run hobe jokhon component mount(mane jokhon component open korbo) hobe
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
             setLoading(false)
         })
-
         return () => {
-            // eta run hobe jokhon component unmount(mane jokhon oi component theke onno component a jabo) hobe
             unsubscribe()
         }
 

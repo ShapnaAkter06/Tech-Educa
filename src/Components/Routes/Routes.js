@@ -17,7 +17,7 @@ export const router = createBrowserRouter([
         errorElement: <ErrorPage></ErrorPage>,
         children: [
             { path: '/', element: <Home></Home> },
-            { path: '/courses', element: <Courses></Courses> },
+            { path: '/courses', element: <Courses></Courses>, loader: ()=> fetch('https://tech-educa-three.vercel.app/courses') },
             { path: '/blog', element: <Blog></Blog> },
             { path: '/faq', element: <FAQ></FAQ> },
             { path: '/login', element: <Login></Login> },
