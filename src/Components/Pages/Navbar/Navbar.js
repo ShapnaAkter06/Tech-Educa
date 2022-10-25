@@ -10,7 +10,7 @@ const Navbar = () => {
     const { user } = useContext(AuthContext)
     return (
         <div>
-            <header className="p-2 bg-pink-200 left-0 right-0 dark:text-gray-100">
+            <header className="p-2 bg-none left-0 right-0 dark:text-gray-100">
                 <div className="container flex justify-between h-16 mx-auto">
                     <div className="flex">
                         <Link to="/" className="flex items-center p-2 text-4xl">
@@ -106,7 +106,7 @@ const Navbar = () => {
                         </label>
                         <ul
                             tabIndex={0}
-                            className="mt-3 p-2 shadow menu menu-compact dropdown-content transition bg-pink-100 rounded-box w-52"
+                            className="mt-3 p-2 shadow menu menu-compact dropdown-content transition bg-gray-200 rounded-box w-52"
                         >
                             <li className="flex">
                                 <NavLink

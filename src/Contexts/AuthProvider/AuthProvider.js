@@ -16,9 +16,9 @@ const AuthProvider = ({ children }) => {
     }
 
     // update user name
-    const updateName = (name) => {
+    const updateUserProfile = (profile) => {
         setLoading(true);
-        return updateProfile(auth.currentUser, { displayName: name })
+        return updateProfile(auth.currentUser, profile)
     }
 
     // For login
@@ -65,7 +65,7 @@ const AuthProvider = ({ children }) => {
     }, [])
 
 
-    const authInfo = { createUser, SignIn, signInWithGoogle, updateName, emailVerified, user, logOut, resetPassword, loading }
+    const authInfo = { createUser, SignIn, signInWithGoogle, updateUserProfile, emailVerified, user, logOut, resetPassword, loading }
     return (
         <div>
             <AuthContext.Provider value={authInfo}>

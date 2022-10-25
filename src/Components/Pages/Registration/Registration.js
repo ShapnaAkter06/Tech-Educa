@@ -1,20 +1,21 @@
 import React, { useContext } from 'react';
 import signupImg from '../../../assets/signup.jpg'
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { Link } from 'react-router-dom';
 
 const Registration = () => {
-    const { createUser, updateName, signInWithGoogle, emailVerified } = useContext(AuthContext);
+    const { createUser, updateUserProfile, signInWithGoogle, emailVerified } = useContext(AuthContext);
 
     const handleSubmit = (event) => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
+        const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
-        // console.log(name, email, password);
+        console.log(name, email, password, photoURL);
 
         //1. Create account
         createUser(email, password)
@@ -22,22 +23,29 @@ const Registration = () => {
                 const user = result.user;
                 console.log(user);
                 form.reset();
-
-                //2. update name
-                updateName(name)
-                    .then(() => {
-                        toast.success('Name Updated')
-
-                        // 3. email verified
-                        emailVerified()
-                            .then(() => {
-                                toast.success("Please check our email verification link")
-                            })
-                            .catch(error => toast.error(error.message))
-                    })
-                    .catch(error => toast.error(error.message))
+                handleUpdateUserProfile(name, photoURL);
+                handleEmailVerification();
+                toast.success("Please verify your email address.")
             })
             .catch(error => console.error(error))
+    }
+
+    //User name and photoURL
+    const handleUpdateUserProfile = (name, photoURL) =>{
+        const profile = {
+            displayName : name,
+            photoURL: photoURL
+        }
+        updateUserProfile(profile)
+        .then( () => {})
+        .catch(error => console.error(error))
+    }
+
+    //Email verification
+    const handleEmailVerification = () =>{
+        emailVerified()
+        .then( () => {})
+        .catch(error => console.error(error))
     }
 
     //For Google Signup
@@ -50,6 +58,7 @@ const Registration = () => {
             })
             .catch(error => console.error(error))
     }
+
     return (
         <div className='flex justify-center items-center pt-8'>
         <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900'>
@@ -73,6 +82,19 @@ const Registration = () => {
                             name='name'
                             id='name'
                             placeholder='Enter Your Name Here'
+                            className='w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-gray-200 text-gray-900'
+                            data-temp-mail-org='0'
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor='photoURL' className='block mb-2 text-sm'>
+                            Photo URL
+                        </label>
+                        <input
+                            type='text'
+                            name='photoURL'
+                            id=''
+                            placeholder='Photo URL'
                             className='w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-gray-200 text-gray-900'
                             data-temp-mail-org='0'
                         />
