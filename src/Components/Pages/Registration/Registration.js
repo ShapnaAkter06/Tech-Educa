@@ -60,13 +60,9 @@ const Registration = () => {
     }
 
     //For GitHub SignUp
-    const gitHubProvider = new GithubAuthProvider()
     const handleGitHubSubmit = () =>{
-        signInWithGitHub(gitHubProvider)
-        .then(result => {
-            const user = result.user;
-            console.log(user);
-        })
+        signInWithGitHub()
+        .then(result => {})
         .catch(error => console.log(error))
     }
 
