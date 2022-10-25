@@ -1,80 +1,186 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { FaListAlt } from 'react-icons/fa';
 import logo from '../../../assets/logo.svg';
 import './Navbar.css'
 
 
 const Navbar = () => {
+    const user = { name: 'null' }
     return (
         <div>
-            <div className="container mx-auto">
-                <div className="navbar bg-pink-200 rounded-md z-10">
-                    <div className="flex-1">
-                        <img className='logo' src={logo} alt="" />
+            <header className="p-2 bg-pink-200 left-0 right-0 dark:text-gray-100">
+                <div className="container flex justify-between h-16 mx-auto">
+                    <div className="flex">
+                        <Link to="/" className="flex items-center p-2 text-4xl">
+                            <img className='logo' src={logo} alt="" />
+                        </Link>
+                        <ul className="items-stretch hidden space-x-3 md:flex">
+                            <li className="flex">
+                                <NavLink
+                                    to="/"
+                                    className={({ isActive }) =>
+                                        isActive ? "flex items-center px-4 -mb-1" : undefined
+                                    }
+                                >
+                                    Home
+                                </NavLink>
+                            </li>
+                            <li className="flex">
+                                <NavLink
+                                    to="/courses"
+                                    className={({ isActive }) =>
+                                        isActive
+                                            ? "flex items-center px-4 -mb-1 border-b-2 dark:text-violet-400 dark:border-violet-400"
+                                            : "flex items-center px-4 -mb-1"
+                                    }
+                                >
+                                    Courses
+                                </NavLink>
+                            </li>
+                            <li className="flex">
+                                <NavLink
+                                    to="/faq"
+                                    className={({ isActive }) =>
+                                        isActive
+                                            ? "flex items-center px-4 -mb-1 border-b-2 dark:text-violet-400 dark:border-violet-400"
+                                            : "flex items-center px-4 -mb-1"
+                                    }
+                                >
+                                    FAQ
+                                </NavLink>
+                            </li>
+                            <li className="flex">
+                                <NavLink
+                                    to="/blog"
+                                    className={({ isActive }) =>
+                                        isActive
+                                            ? "flex items-center px-4 -mb-1 border-b-2 dark:text-violet-400 dark:border-violet-400"
+                                            : "flex items-center px-4 -mb-1"
+                                    }
+                                >
+                                    Blog
+                                </NavLink>
+                            </li>
+                        </ul>
                     </div>
-                    <div className="flex-none gap-2">
-                        <div className="flex-none  hidden sm:block">
-                            <ul className="menu menu-horizontal p-0 text-cyan-900 font-medium">
-                                <li className="mx-2">
-                                    <NavLink to={"/"}>Home</NavLink>
-                                </li>
-                                <li className="mx-2">
-                                    <NavLink to={"/courses"}>Courses</NavLink>
-                                </li>
-                                <li className="mx-2">
-                                    <NavLink to={"/Blog"}>Blog</NavLink>
-                                </li>
-                                <li className="mx-2">
-                                    <NavLink to={"/faq"}>FAQ</NavLink>
-                                </li>
-                                <li className="mx-2">
-                                    <NavLink to={"checkout"}>Check Out</NavLink>
-                                </li>
-                                <li className="mx-2">
-                                    <NavLink to={"/login"}>Log In</NavLink>
-                                </li>
-                                <li className="mx-2">
-                                    <NavLink to={"/registration"}>Registration</NavLink>
-                                </li>
-                            </ul>
-                        </div>
-                        <div className="dropdown dropdown-end sm:hidden">
-                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                                <div className="text-cyan-800">
-                                    <FaListAlt></FaListAlt>
-                                </div>
-                            </label>
-                            <ul
-                                tabIndex={0}
-                                className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
+                    <div className="items-center flex-shrink-0 hidden md:flex">
+                        {user?.name ? (
+                            <Link
+                                to="/login"
+                                className="self-center px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
                             >
-                                <li className="mx-2">
-                                    <NavLink to={"/"}>Home</NavLink>
-                                </li>
-                                <li className="mx-2">
-                                    <NavLink to={"/courses"}>Courses</NavLink>
-                                </li>
-                                <li className="mx-2">
-                                    <NavLink to={"/Blog"}>Blog</NavLink>
-                                </li>
-                                <li className="mx-2">
-                                    <NavLink to={"/faq"}>FAQ</NavLink>
-                                </li>
-                                <li className="mx-2">
-                                    <NavLink to={"checkout"}>Check Out</NavLink>
-                                </li>
-                                <li className="mx-2">
-                                    <NavLink to={"/login"}>Log In</NavLink>
-                                </li>
-                                <li className="mx-2">
-                                    <NavLink to={"/registration"}>Registration</NavLink>
-                                </li>
-                            </ul>
-                        </div>
+                                Sign out
+                            </Link>
+                        ) : (
+                            <>
+                                <Link to="/register" className="self-center px-8 py-3 rounded">
+                                    Register
+                                </Link>
+                                <Link
+                                    to="/login"
+                                    className="self-center px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
+                                >
+                                    Login
+                                </Link>
+                            </>
+                        )}
+                    </div>
+                    <div className="dropdown dropdown-end md:hidden ">
+                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                className="w-6 h-6 dark:text-gray-100"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    d="M4 6h16M4 12h16M4 18h16"
+                                ></path>
+                            </svg>
+                        </label>
+                        <ul
+                            tabIndex={0}
+                            className="mt-3 p-2 shadow menu menu-compact dropdown-content transition bg-pink-100 rounded-box w-52"
+                        >
+                            <li className="flex">
+                                <NavLink
+                                    to="/"
+                                    className={({ isActive }) =>
+                                        isActive ? "flex items-center px-4 -mb-1" : undefined
+                                    }
+                                >
+                                    Home
+                                </NavLink>
+                            </li>
+                            <li className="flex">
+                                <NavLink
+                                    to="/courses"
+                                    className={({ isActive }) =>
+                                        isActive
+                                            ? "flex items-center px-4 -mb-1 border-b-2 dark:text-violet-400 dark:border-violet-400"
+                                            : "flex items-center px-4 -mb-1"
+                                    }
+                                >
+                                    Courses
+                                </NavLink>
+                            </li>
+                            <li className="flex">
+                                <NavLink
+                                    to="/faq"
+                                    className={({ isActive }) =>
+                                        isActive
+                                            ? "flex items-center px-4 -mb-1 border-b-2 dark:text-violet-400 dark:border-violet-400"
+                                            : "flex items-center px-4 -mb-1"
+                                    }
+                                >
+                                    FAQ
+                                </NavLink>
+                            </li>
+                            <li className="flex">
+                                <NavLink
+                                    to="/blog"
+                                    className={({ isActive }) =>
+                                        isActive
+                                            ? "flex items-center px-4 -mb-1 border-b-2 dark:text-violet-400 dark:border-violet-400"
+                                            : "flex items-center px-4 -mb-1"
+                                    }
+                                >
+                                    Blog
+                                </NavLink>
+                            </li>
+                            {user?.name ? (
+                                <Link
+                                    to="/login"
+                                    className="self-center px-8 mt-3 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
+                                >
+                                    Sign out
+                                </Link>
+                            ) : (
+                                <>
+                                    <Link
+                                        to="/register"
+                                        className="self-center px-8 mt-1 py-3 rounded"
+                                    >
+                                        Register
+                                    </Link>
+                                    <Link
+                                        to="/login"
+                                        className="self-center px-8 mt-2 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
+                                    >
+                                        Login
+                                    </Link>
+                                </>
+                            )}
+                        </ul>
                     </div>
                 </div>
-            </div>
+            </header>
+
 
         </div>
     );
