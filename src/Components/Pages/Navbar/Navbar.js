@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { FaListAlt } from 'react-icons/fa';
 import logo from '../../../assets/logo.svg';
 import './Navbar.css'
+import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 
 
 const Navbar = () => {
-    const user = { name: 'null' }
+    const { user } = useContext(AuthContext)
     return (
         <div>
             <header className="p-2 bg-pink-200 left-0 right-0 dark:text-gray-100">
@@ -70,12 +71,12 @@ const Navbar = () => {
                                 to="/login"
                                 className="self-center px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
                             >
-                                Sign out
+                                Log out
                             </Link>
                         ) : (
                             <>
-                                <Link to="/register" className="self-center px-8 py-3 rounded">
-                                    Register
+                                <Link to="/registration" className="self-center px-8 py-3 rounded">
+                                    Registration
                                 </Link>
                                 <Link
                                     to="/login"
@@ -158,15 +159,15 @@ const Navbar = () => {
                                     to="/login"
                                     className="self-center px-8 mt-3 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
                                 >
-                                    Sign out
+                                    Log out
                                 </Link>
                             ) : (
                                 <>
                                     <Link
-                                        to="/register"
+                                        to="/registration"
                                         className="self-center px-8 mt-1 py-3 rounded"
                                     >
-                                        Register
+                                        Registration
                                     </Link>
                                     <Link
                                         to="/login"
