@@ -6,7 +6,7 @@ import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 
 
 const Navbar = () => {
-    const { user , logOut} = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
 
     const handleLogOut = () => {
         logOut()
@@ -67,6 +67,16 @@ const Navbar = () => {
                                     Blog
                                 </NavLink>
                             </li>
+
+                            {/* toggle button added */}
+                            <label for="Toggle1" className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100">
+                                <span className="relative">
+                                    <input id="Toggle1" type="checkbox" className="hidden peer" />
+                                    <div className="w-10 h-6 rounded-full shadow-inner dark:bg-gray-400 peer-checked:dark:bg-violet-400"></div>
+                                    <div className="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-800"></div>
+                                </span>
+                            </label>
+
                         </ul>
                     </div>
                     <div className="items-center flex-shrink-0 hidden md:flex">
@@ -76,7 +86,7 @@ const Navbar = () => {
                                     to="/profile"
                                     className="self-center px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
                                 >
-                                    <img src={user.photoURL} alt="" title={user.displayName}/>
+                                    <img src={user.photoURL} alt="" title={user.displayName} />
                                 </Link>
                                 <Link
                                     to="/login"
@@ -167,21 +177,29 @@ const Navbar = () => {
                                     Blog
                                 </NavLink>
                             </li>
+                            {/* toggle button added */}
+                            <label for="Toggle1" className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100">
+                                <span className="relative">
+                                    <input id="Toggle1" type="checkbox" className="hidden peer" />
+                                    <div className="w-10 h-6 rounded-full shadow-inner dark:bg-gray-400 peer-checked:dark:bg-violet-400"></div>
+                                    <div className="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-800"></div>
+                                </span>
+                            </label>
                             {user?.email ? (
                                 <>
-                                <Link
-                                    to="/profile"
-                                    className="self-center px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
-                                >
-                                    <img src={user.photoURL} alt="" title={user.displayName}/>
-                                </Link>
-                                <Link
-                                    to="/login"
-                                    className="self-center px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
-                                >
-                                   <button onClick={handleLogOut}>Log out</button>
-                                </Link>
-                            </>
+                                    <Link
+                                        to="/profile"
+                                        className="self-center px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
+                                    >
+                                        <img src={user.photoURL} alt="" title={user.displayName} />
+                                    </Link>
+                                    <Link
+                                        to="/login"
+                                        className="self-center px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
+                                    >
+                                        <button onClick={handleLogOut}>Log out</button>
+                                    </Link>
+                                </>
                             ) : (
                                 <>
                                     <Link

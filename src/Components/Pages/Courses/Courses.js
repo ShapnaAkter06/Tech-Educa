@@ -14,7 +14,7 @@ const Courses = () => {
                 <SideBar categories={courses}></SideBar>
                 <div className='grid lg:grid-cols-3 gap-4'>
                     {
-                        courses.map(course => <Course
+                        courses?.map(course => <Course
                             key={course.id}
                             course={course}
                         ></Course>)
