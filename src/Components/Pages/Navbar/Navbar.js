@@ -7,7 +7,12 @@ import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 
 
 const Navbar = () => {
-    const { user } = useContext(AuthContext)
+    const { user , logOut} = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+    }
+
     return (
         <div>
             <header className="p-2 bg-none left-0 right-0 dark:text-gray-100">
@@ -66,13 +71,22 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className="items-center flex-shrink-0 hidden md:flex">
-                        {user?.name ? (
-                            <Link
-                                to="/login"
-                                className="self-center px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
-                            >
-                                Log out
-                            </Link>
+                        {user?.email ? (
+                            <>
+                                <Link
+                                    to="/profile"
+                                    className="self-center px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
+                                >
+                                    {user.displayName}
+                                </Link>
+                                <Link
+                                    to="/login"
+                                    className="self-center px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
+                                >
+                                    <button onClick={handleLogOut}>Log out</button>
+                                </Link>
+                            </>
+
                         ) : (
                             <>
                                 <Link to="/registration" className="self-center px-8 py-3 rounded">
@@ -154,13 +168,21 @@ const Navbar = () => {
                                     Blog
                                 </NavLink>
                             </li>
-                            {user?.name ? (
+                            {user?.email ? (
+                                <>
+                                <Link
+                                    to="/profile"
+                                    className="self-center px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
+                                >
+                                    {user.displayName}
+                                </Link>
                                 <Link
                                     to="/login"
-                                    className="self-center px-8 mt-3 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
+                                    className="self-center px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
                                 >
-                                    Log out
+                                   <button onClick={handleLogOut}>Log out</button>
                                 </Link>
+                            </>
                             ) : (
                                 <>
                                     <Link
