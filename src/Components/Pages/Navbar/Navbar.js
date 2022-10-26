@@ -81,6 +81,12 @@ const Navbar = () => {
                         {user?.email ? (
                             <>
                                 <Link
+                                    to="/checkout"
+                                    className="self-center px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
+                                >
+                                    <button>Checkout</button>
+                                </Link>
+                                <Link
                                     to="/profile"
                                     className="self-center px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
                                 >
