@@ -22,7 +22,7 @@ export const router = createBrowserRouter([
             { path: '/faq', element: <FAQ></FAQ> },
             { path: '/login', element: <Login></Login> },
             { path: '/registration', element: <Registration></Registration> },
-            { path: '/courseDetails', element: <CourseDetails></CourseDetails> },
+            { path: '/details/:id', element: <CourseDetails></CourseDetails>, loader: ({params})=> fetch(`https://tech-educa-three.vercel.app/courses/${params.id}`) },
             { path: '/checkout', element: <CheckOut></CheckOut> },
         ]
     }

@@ -12,7 +12,7 @@ const SideBar = ({ categories }) => {
                         <div className="flex flex-col space-y-1">
                             {
                                 categories?.map(category => <li className='p-2 border shadow-md'>
-                                    <Link key={category.id}>{category.name}</Link>
+                                    <Link to={`/details/${category.id}`} key={category.id}>{category.name}</Link>
                                 </li>)
                             }
                         </div>

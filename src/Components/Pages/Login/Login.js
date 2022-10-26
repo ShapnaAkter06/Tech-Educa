@@ -58,8 +58,6 @@ const Login = () => {
                 </div>
                 <form
                     onSubmit={handleSubmit}
-                    noValidate=''
-                    action=''
                     className='space-y-6 ng-untouched ng-pristine ng-valid'
                 >
                     <div className='space-y-4'>

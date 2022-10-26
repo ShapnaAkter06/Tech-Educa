@@ -8,7 +8,7 @@ const Course = ({ course }) => {
             <img src={image} alt="" className="object-cover object-center w-full rounded-md h-72 dark:bg-gray-500" />
             <div className="mt-6 mb-2">
                 <span className="block text-xs font-medium tracking-widest uppercase dark:text-violet-400">{name}</span>
-                <Link to={`/courseDetails/${id}`} className='font-bold text-blue-900' course={course} key={course.id}>
+                <Link to={`/details/${id}`} className='font-bold text-blue-900' course={course} key={course.id}>
                     See Details...
                 </Link>
             </div>          
