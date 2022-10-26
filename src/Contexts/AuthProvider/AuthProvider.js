@@ -44,7 +44,7 @@ const AuthProvider = ({ children }) => {
     const gitHubProvider = new GithubAuthProvider()
     const signInWithGitHub = () =>{
         setLoading(true)
-        return signInWithGitHub(auth, gitHubProvider)
+        return signInWithPopup(auth, gitHubProvider)
     }
 
     // logout
