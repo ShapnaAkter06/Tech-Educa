@@ -86,7 +86,7 @@ const Navbar = () => {
                                 >
                                     <div className='tooltip tooltip-bottom z-10' data-tip={user.displayName}>
                                         <button>
-                                            <img className='w-18 h-18 rounded-full bg-gray-500 border-gray-700' src={user?.photoURL ? user.photoURL : profiileImg} alt=""  />
+                                            <img className='w-18 h-18 rounded-full bg-gray-500 border-gray-700' src={user?.photoURL ? user.photoURL : profiileImg} alt="" />
                                         </button>
                                     </div>
                                 </Link>
@@ -193,7 +193,11 @@ const Navbar = () => {
                                         to="/profile"
                                         className="self-center px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
                                     >
-                                        <img className='w-18 h-18 rounded-full bg-gray-500 border-gray-700' src={user?.photoURL ? user.photoURL : profiileImg} alt="" title={user.displayName} />
+                                        <div className='tooltip tooltip-bottom z-10' data-tip={user.displayName}>
+                                            <button>
+                                                <img className='w-18 h-18 rounded-full bg-gray-500 border-gray-700' src={user?.photoURL ? user.photoURL : profiileImg} alt="" />
+                                            </button>
+                                        </div>
                                     </Link>
                                     <Link
                                         to="/login"
