@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
-import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 
 const Registration = () => {
@@ -25,7 +24,6 @@ const Registration = () => {
                 form.reset();
                 handleUpdateUserProfile(name, photoURL);
                 handleEmailVerification();
-                toast.success("Please verify your email address.")
             })
             .catch(error => {
                 console.error(error)
