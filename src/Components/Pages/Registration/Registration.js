@@ -1,8 +1,6 @@
 import React, { useContext, useState } from 'react';
-import signupImg from '../../../assets/signup.jpg'
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
-import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { Link } from 'react-router-dom';
 
 const Registration = () => {
@@ -54,9 +52,8 @@ const Registration = () => {
     }
 
     //For Google Signup
-    const googleProvider = new GoogleAuthProvider()
     const handleGoogleSubmit = () => {
-        signInWithGoogle(googleProvider)
+        signInWithGoogle()
             .then(result => {
                 const user = result.user;
                 console.log(user);
@@ -67,7 +64,10 @@ const Registration = () => {
     //For GitHub SignUp
     const handleGitHubSubmit = () => {
         signInWithGitHub()
-            .then(result => { })
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
             .catch(error => console.log(error))
     }
 
