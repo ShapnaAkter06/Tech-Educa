@@ -12,7 +12,7 @@ const CourseDetails = () => {
                     <h2 className="card-title">{details?.name}</h2>
                     <p>{details?.description}</p>
                     <div className="card-actions justify-end">
-                    <Link to={`/checkout/${details.id}`} key={details.id} details={details}>
+                        <Link to={`/checkout/${details.id}`} key={details.id} details={details}>
                             <button className="btn btn-primary">Get Premium Access</button>
                         </Link>
                     </div>
