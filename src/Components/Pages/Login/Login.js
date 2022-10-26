@@ -1,9 +1,10 @@
 import { GoogleAuthProvider } from 'firebase/auth';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 
 const Login = () => {
+    const [error, setError] = useState()
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/'
@@ -19,11 +20,15 @@ const Login = () => {
         SignIn(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                // console.log(user);
+                setError('')
                 form.reset();
                 navigate(from, { replace: true })
             })
-            .catch(error => console.error(error))
+            .catch(error => {
+                console.error(error)
+                setError(error.message)
+            })
     }
 
     //For Google SignIn
@@ -78,6 +83,9 @@ const Login = () => {
                                 placeholder='*******'
                                 className='w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-200 focus:border-gray-900 text-gray-900'
                             />
+                        </div>
+                        <div>
+                            <p className='text-red-500'>{error}</p>
                         </div>
                     </div>
 
