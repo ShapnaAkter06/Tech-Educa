@@ -6,14 +6,14 @@ const CourseDetails = () => {
     console.log(details);
     return (
         <div>
-            <div className="max-w-xs rounded-md shadow-md dark:bg-gray-900 dark:text-gray-100">
-                <img src="https://source.unsplash.com/random/300x300/?2" alt="" className="object-cover object-center w-full rounded-t-md h-72 dark:bg-gray-500" />
-                <div className="flex flex-col justify-between p-6 space-y-8">
-                    <div className="space-y-2">
-                        <h2 className="text-3xl font-semibold tracking-wide">Donec lectus leo</h2>
-                        <p className="dark:text-gray-100">Curabitur luctus erat nunc, sed ullamcorper erat vestibulum eget.</p>
+            <div className="card lg:card-side bg-base-100 shadow-xl m-16">
+                <figure><img className='w-full' src={details.image} alt="Album" /></figure>
+                <div className="card-body">
+                    <h2 className="card-title">Course Name: {details.name}</h2>
+                    <p>{details.description}</p>
+                    <div className="card-actions justify-end">
+                        <button className="btn btn-primary">Get Premium Access</button>
                     </div>
-                    <button type="button" className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md dark:bg-violet-400 dark:text-gray-900">Read more</button>
                 </div>
             </div>
         </div>
