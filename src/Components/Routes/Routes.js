@@ -9,6 +9,7 @@ import FAQ from "../Pages/FAQ/FAQ";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Registration from "../Pages/Registration/Registration";
+import PrivateRoutes from "./PrivateRoutes";
 
 export const router = createBrowserRouter([
     {
@@ -45,7 +46,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/checkout/:id',
-                element: <CheckOut></CheckOut>,
+                element: <PrivateRoutes><CheckOut></CheckOut></PrivateRoutes>,
                 loader: ({ params }) => fetch(`https://tech-educa-three.vercel.app/courses/${params.id}`)
             },
         ]
