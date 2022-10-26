@@ -87,13 +87,13 @@ const Registration = () => {
                     <div className='space-y-4'>
                         <div>
                             <label htmlFor='email' className='block mb-2 text-sm'>
-                                Name
+                                Full Name
                             </label>
                             <input
                                 type='text'
                                 name='name'
                                 id='name'
-                                placeholder='Enter Your Name Here'
+                                placeholder='Enter Your Full Name Here'
                                 className='w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-gray-200 text-gray-900'
                                 data-temp-mail-org='0'
                             />
