@@ -11,6 +11,7 @@ const CourseDetails = () => {
                 <div className="card-body">
                     <h2 className="card-title">Course Name: {details.name}</h2>
                     <p>{details.description}</p>
+                    <p>${details.courseFee}</p>
                     <div className="card-actions justify-end">
                         <button className="btn btn-primary">Get Premium Access</button>
                     </div>
