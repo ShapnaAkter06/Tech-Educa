@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import logo from '../../../assets/logo.svg';
 import './Navbar.css'
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
+import profiileImg from '../../../assets/pp.png'
 
 
 const Navbar = () => {
@@ -86,7 +87,7 @@ const Navbar = () => {
                                     to="/profile"
                                     className="self-center px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
                                 >
-                                    <img src={user.photoURL} alt="" title={user.displayName} />
+                                    <img className='w-18 h-18 rounded-full bg-gray-500 border-gray-700' src={user?.photoURL ? user.photoURL : profiileImg} alt="" title={user.displayName} />
                                 </Link>
                                 <Link
                                     to="/login"
@@ -191,7 +192,7 @@ const Navbar = () => {
                                         to="/profile"
                                         className="self-center px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
                                     >
-                                        <img src={user.photoURL} alt="" title={user.displayName} />
+                                        <img className='w-18 h-18 rounded-full bg-gray-500 border-gray-700' src={user?.photoURL ? user.photoURL : profiileImg} alt="" title={user.displayName} />
                                     </Link>
                                     <Link
                                         to="/login"
