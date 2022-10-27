@@ -10,7 +10,7 @@ const CheckOut = () => {
                 <div className="card-body">
                     <h1 className='text-2xl mb-4'>Welcome To Tech Educa</h1>
                     <h2 className="card-title text-2xl"> Course name: {display?.name}</h2>
-                    <p className="card-title text-2xl">Course Fee: ${display?.courseFee}</p>
+                    <p className="card-title">Course Fee: ${display?.courseFee}</p>
                     <p className='text-1xl'><small>ID Number: {display?.id}</small></p>
                 </div>
             </div>
