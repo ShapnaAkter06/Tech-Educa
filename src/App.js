@@ -4,6 +4,8 @@ import "aos/dist/aos.css";
 import { RouterProvider } from 'react-router-dom';
 import { router } from './Components/Routes/Routes';
 import { useEffect } from 'react';
+import { Toaster } from 'react-hot-toast';
+
 
 
 function App() {
@@ -15,6 +17,7 @@ function App() {
 
   return (
     <div>
+      <Toaster />
       <RouterProvider
         router={router}>
       </RouterProvider>
