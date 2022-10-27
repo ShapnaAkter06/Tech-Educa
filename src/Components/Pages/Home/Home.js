@@ -12,7 +12,7 @@ const Home = () => {
                 <button type="button" className="px-8 py-3 font-semibold border rounded dark:border-gray-100 dark:text-gray-100 bg-pink-700 text-white mt-4">Visit Course</button>
                 </Link>
             </div>
-            <div className='w-full lg:w-4/5 lg:ml-auto h-56 sm:h-96'>
+            <div className='w-full lg:w-4/5 lg:ml-auto h-56 sm:h-96 mt-4'>
                 <img src={homeBg} alt="" />
             </div>
         </div>
