@@ -9,7 +9,7 @@ const CheckOut = () => {
     const { user } = useContext(AuthContext);
     console.log(user);
     return (
-        <div className='flex-col lg:flex-row justify-center items-center gap-4 mt-16'>
+        <div className='flex-col lg:flex-row justify-center items-center gap-4 m-12'>
             <div className="card w-96 bg-base-100 shadow-xl">
                 <h1 className='text-2xl mb-4 text-center'>User Information</h1>
                 <figure className="px-10">
