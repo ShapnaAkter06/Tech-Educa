@@ -1,10 +1,14 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import registration from '../../../assets/registration.gif'
 const Registration = () => {
     const [error, setError] = useState()
     const { createUser, updateUserProfile, signInWithGoogle, emailVerified, signInWithGitHub } = useContext(AuthContext);
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/'
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -22,6 +26,7 @@ const Registration = () => {
                 // console.log(user);
                 setError('')
                 form.reset();
+                navigate(from, { replace: true })
                 handleUpdateUserProfile(name, photoURL);
                 handleEmailVerification();
             })
